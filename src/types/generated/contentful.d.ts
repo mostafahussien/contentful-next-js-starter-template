@@ -3,9 +3,77 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IHeroFields {
+  /** Title */
+  title: string;
+
+  /** Description */
+  description?: string | undefined;
+
+  /** Image */
+  image?: Asset | undefined;
+}
+
+export interface IHero extends Entry<IHeroFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "hero";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ITextComponentFields {
+  /** Title */
+  title: string;
+
+  /** Text */
+  text?: Document | undefined;
+}
+
+export interface ITextComponent extends Entry<ITextComponentFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "textComponent";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IWebPageFields {
   /** Title */
   title: string;
+
+  /** Slug */
+  slug: string;
+
+  /** Renderings */
+  renderings?: (IHero | ITextComponent)[] | undefined;
+
+  /** Meta Title */
+  metaTitle?: string | undefined;
+
+  /** Meta Description */
+  metaDescription?: string | undefined;
+
+  /** Open Graph Image */
+  openGraphImage?: Asset | undefined;
 }
 
 export interface IWebPage extends Entry<IWebPageFields> {
@@ -25,7 +93,7 @@ export interface IWebPage extends Entry<IWebPageFields> {
   };
 }
 
-export type CONTENT_TYPE = "webPage";
+export type CONTENT_TYPE = "hero" | "textComponent" | "webPage";
 
 export type LOCALE_CODE = "en-US";
 

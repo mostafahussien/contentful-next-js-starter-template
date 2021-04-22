@@ -1,9 +1,12 @@
-import { join } from "path";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
 
-export const sassOptions = {
-  includePaths: [join(__dirname, "styles")],
-};
-export const target = "serverless";
-export const images = {
-  domains: ["images.ctfassets.net"],
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+  target: "serverless",
+  images: {
+    domains: ["images.ctfassets.net"],
+  },
 };
