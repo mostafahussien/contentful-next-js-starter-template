@@ -19,6 +19,16 @@ export interface ContentfulAsset {
 export interface WebPageProps {
   title: string;
   slug: string;
+  pageLayout: {
+    sys: {
+      id: string;
+    };
+  };
+  metaDescription: string;
+  metaTitle: string;
+  openGraphImage: {
+    url: string;
+  };
   renderingsCollection: {
     items: { sys: { id: string }; __typename: string }[];
   };

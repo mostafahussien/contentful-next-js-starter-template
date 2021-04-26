@@ -1,7 +1,9 @@
 import { memo } from "react";
 
-import { ContenfulWrapperProps } from "@app/features/contentful/contentful";
-import useSingleEntry from "@app/features/contentful/hooks/useSingleEntry";
+import {
+  ContenfulWrapperProps,
+  useSingleEntry,
+} from "@app/features/contentful/contentful";
 
 import Hero, { HeroProps } from "./Hero";
 

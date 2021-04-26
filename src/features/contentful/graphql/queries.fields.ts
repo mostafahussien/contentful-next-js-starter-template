@@ -1,19 +1,19 @@
 export const PAGE_GRAPHQL_FIELDS = `
 slug
 title
+pageLayout {
+  sys {
+    id
+  }
+}
+metaDescription
+metaTitle
+openGraphImage {
+  url
+}
 renderingsCollection {
   items {
     __typename
-    ... on Hero {
-      sys {
-        id
-      }
-    }
-    ... on TextComponent {
-      sys {
-        id
-      }
-    }
     ... on Entry {
       sys {
         id
@@ -22,7 +22,34 @@ renderingsCollection {
   }
 }`;
 
-export const ENTRY_GRAPHQL_FIELDS = `      
+export const ENTRY_GRAPHQL_FIELDS = `
+... on Layout {
+  header {
+    sys {
+      id
+    }
+  }
+  footer {
+    sys {
+      id
+    }
+  }
+}
+... on Header {
+  title
+  menuLinksCollection {
+    items {
+      sys{
+        id
+      }
+      label
+      link
+    }
+  }
+}
+... on Footer {
+  title
+}
 ... on Hero {
   title
   description

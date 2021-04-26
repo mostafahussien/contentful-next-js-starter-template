@@ -2,8 +2,7 @@ import { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
 
 import { memo } from "react";
 
-import Link from "next/link";
-
+import DynamicLayout from "@app/components/layouts/DynamicLayout/DynamicLayout";
 import RenderingLoader from "@app/components/renderings/RenderingLoader/RenderingLoader";
 import {
   getPageBySlug,
@@ -11,14 +10,14 @@ import {
 } from "@app/features/contentful/contentful";
 
 const WebPage: NextPage<WebPageProps> = memo(props => {
-  const { title, renderingsCollection } = props;
+  const { renderingsCollection, pageLayout } = props;
   return (
     <div>
-      <h1>{title}</h1>
-      <Link href="/">
-        <a>home</a>
-      </Link>
-      <RenderingLoader renderings={renderingsCollection.items} />
+      {pageLayout && (
+        <DynamicLayout contentfulId={pageLayout.sys.id}>
+          <RenderingLoader renderings={renderingsCollection.items} />
+        </DynamicLayout>
+      )}
     </div>
   );
 });

@@ -4,3 +4,4 @@ export type {
   WebPageProps,
   ContentfulAsset,
 } from "./types/contentful.types";
+export { default as useSingleEntry } from "./hooks/useSingleEntry";
