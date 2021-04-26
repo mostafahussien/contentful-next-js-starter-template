@@ -15,8 +15,12 @@ const fetchGraphQL = async (query: string) => {
   ).then(response => response.json());
 };
 
-const extractPostEntries = fetchResponse => {
+const extractPages = fetchResponse => {
   return fetchResponse?.data?.webPageCollection?.items[0];
+};
+
+const extractEntries = fetchResponse => {
+  return fetchResponse?.data?.entryCollection?.items[0];
 };
 
 export const getPageBySlug = async (slug: string) => {
@@ -30,7 +34,7 @@ export const getPageBySlug = async (slug: string) => {
     }`
   );
 
-  return extractPostEntries(page);
+  return extractPages(page);
 };
 
 export const getEntryById = async (id: string) => {
@@ -44,5 +48,5 @@ export const getEntryById = async (id: string) => {
     }`
   );
 
-  return extractPostEntries(entry);
+  return extractEntries(entry);
 };

@@ -3,6 +3,7 @@ slug
 title
 renderingsCollection {
   items {
+    __typename
     ... on Hero {
       sys {
         id

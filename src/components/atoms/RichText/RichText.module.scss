@@ -1,0 +1,31 @@
+@import "styles/variables";
+
+.container {
+  p + * {
+    margin-top: $spacing-6;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) + * {
+    margin-top: $spacing-1;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  hr {
+    border-color: var(--color-primary-fill-separator);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: $spacing-6;
+    margin-top: $spacing-6;
+  }
+
+  blockquote {
+    background-color: var(--color-primary-base-1);
+    border-inline-start: $spacing-1 solid var(--color-primary-fill-1);
+    padding: $spacing-3;
+    margin: $spacing-6 $spacing-4;
+  }
+}

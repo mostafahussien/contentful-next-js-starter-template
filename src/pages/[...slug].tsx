@@ -4,17 +4,21 @@ import { memo } from "react";
 
 import Link from "next/link";
 
-import { getPageBySlug } from "@app/features/contentful/contentful";
-import { IWebPageFields } from "@app/types/generated/contentful";
+import RenderingLoader from "@app/components/renderings/RenderingLoader/RenderingLoader";
+import {
+  getPageBySlug,
+  WebPageProps,
+} from "@app/features/contentful/contentful";
 
-const WebPage: NextPage<IWebPageFields> = memo(props => {
-  const { title } = props;
+const WebPage: NextPage<WebPageProps> = memo(props => {
+  const { title, renderingsCollection } = props;
   return (
     <div>
       <h1>{title}</h1>
       <Link href="/">
         <a>home</a>
       </Link>
+      <RenderingLoader renderings={renderingsCollection.items} />
     </div>
   );
 });
