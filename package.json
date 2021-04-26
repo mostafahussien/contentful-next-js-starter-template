@@ -21,15 +21,18 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint"
+    ],
+    "src/**/*.{json,css,scss,sass}": [
+      "yarn format"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint '*/**/*.{ts,tsx}' --fix"
-    ]
   },
   "engines": {
     "npm": "please use yarn",
