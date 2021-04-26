@@ -1,5 +1,5 @@
 import { ENV } from "../constants/contentful.env";
-import { ENTRY_GRAPHQL_FIELDS, PAGE_GRAPHQL_FIELDS } from "./queries";
+import { ENTRY_GRAPHQL_FIELDS, PAGE_GRAPHQL_FIELDS } from "./queries.fields";
 
 const fetchGraphQL = async (query: string) => {
   return fetch(
